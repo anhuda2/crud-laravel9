@@ -41,7 +41,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //validate form
-        $this->validate($request, [
+        $request->validate([
             'image'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title'     => 'required|min:5',
             'content'   => 'required|min:10'
@@ -83,7 +83,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //validate form
-        $this->validate($request, [
+        $request->validate([
             'image'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title'     => 'required|min:5',
             'content'   => 'required|min:10'
